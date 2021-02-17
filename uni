@@ -3,5 +3,8 @@
 - hosts: node
   roles:
   # Make all this Automatic! It should detect the OS and only chose os_pkg when appropriate! or if it's the only option available. Can be overridden with tags.
-  - role: docker-compose
-    tags: docker
+  - role: nextcloud/docker-compose
+    tags: docker, never
+
+  - role: test
+    tags: test

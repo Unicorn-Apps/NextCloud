@@ -1,0 +1,14 @@
+---
+
+- name: Container present
+  docker_container:
+    name: mycontainer
+    state: present
+    image: ubuntu:20.04
+    command: sleep infinity
+
+- name: Start a container with a command
+  docker_container:
+    name: try
+    image: ubuntu:20.04
+    command: ["sleep", "infinity"]
