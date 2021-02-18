@@ -1,0 +1,4 @@
+---
+
+- debug:
+    msg: "{{ hostvars['node1']['eth_ip'] }}"

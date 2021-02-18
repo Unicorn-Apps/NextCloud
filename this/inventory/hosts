@@ -1,5 +1,5 @@
 [node]
-node1.local
+node1
 
 [node:vars]
 ansible_become_password=u

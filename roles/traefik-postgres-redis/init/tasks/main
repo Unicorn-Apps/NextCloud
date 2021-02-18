@@ -7,3 +7,9 @@
   template:
     src: docker-compose.yml
     dest: '{{ app_src }}/docker-compose.yml'
+
+
+- name: Create and start services
+  docker_compose:
+    project_src: '{{ app_src }}'
+  register: output

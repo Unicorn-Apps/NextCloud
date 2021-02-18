@@ -1,0 +1,4 @@
+---
+- name: Get ip
+  set_fact:
+    eth_ip: '{{ansible_facts.eth0.ipv4.address}}'
