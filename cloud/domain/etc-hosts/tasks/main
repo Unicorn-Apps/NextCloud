@@ -7,11 +7,10 @@
     msg: "dom {{ full_domain }}"
 
 
-- name: Set IP in hosts
+- name: Set hosts
   lineinfile:
     dest: /etc/hosts
-    regexp: '.*{{ item }}$'
-    line: "{{ hostvars[item].ansible_host }} {{item}}"
+    regexp: '.*{{ full_domain }}$'
+    line: "{{ hostvars['node1']['default_ipv4'] }} {{full_domain}}"
     state: present
-  when: hostvars[item].ansible_host is defined
-  with_items: "{{ groups.all }}"
+  become: true
