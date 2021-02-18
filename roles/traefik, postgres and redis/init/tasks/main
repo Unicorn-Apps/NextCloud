@@ -1,0 +1,9 @@
+---
+
+- debug:
+    msg: "init!"
+
+- name: Template docker-compose.yml
+  template:
+    src: docker-compose.yml
+    dest: '{{ app_src }}/docker-compose.yml'

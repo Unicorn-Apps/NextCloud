@@ -1,0 +1,5 @@
+---
+- docker_compose:
+    files:
+    project_src: 
+    state: absent

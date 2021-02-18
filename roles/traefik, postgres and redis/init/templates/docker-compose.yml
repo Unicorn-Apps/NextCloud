@@ -39,7 +39,7 @@ services:
       - "--entrypoints.web.http.redirections.entryPoint.scheme=https"
       - "--certificatesresolvers.myresolver.acme.httpchallenge=true"
       - "--certificatesresolvers.myresolver.acme.httpchallenge.entrypoint=web"
-      - "--certificatesresolvers.myresolver.acme.email=myemail@gmail.com"
+      - "--certificatesresolvers.myresolver.acme.email={{ admin_email }}"
       - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
     ports:
       - 80:80
@@ -79,9 +79,9 @@ services:
     labels:
       - traefik.http.routers.nextcloud.middlewares=nextcloud,nextcloud_redirect
       - traefik.http.routers.nextcloud.tls.certresolver=myresolver
-      - traefik.http.routers.nextcloud.rule=Host(`nextcloud.mydomain.com`)
-      - traefik.http.middlewares.nextcloud.headers.customFrameOptionsValue=ALLOW-FROM https://mydomain.com
-      - traefik.http.middlewares.nextcloud.headers.contentSecurityPolicy=frame-ancestors 'self' mydomain.com *.mydomain.net
+      - traefik.http.routers.nextcloud.rule=Host(` {{ full_domain }} `)
+      - traefik.http.middlewares.nextcloud.headers.customFrameOptionsValue=ALLOW-FROM https://{{ domain }}
+      - traefik.http.middlewares.nextcloud.headers.contentSecurityPolicy=frame-ancestors 'self' {{ domain }} *.{{othersite}}
       - traefik.http.middlewares.nextcloud.headers.stsSeconds=155520011
       - traefik.http.middlewares.nextcloud.headers.stsIncludeSubdomains=true
       - traefik.http.middlewares.nextcloud.headers.stsPreload=true
@@ -95,7 +95,7 @@ services:
       - NEXTCLOUD_ADMIN_USER=admin
       - NEXTCLOUD_ADMIN_PASSWORD=adminpass
       - REDIS_HOST=redis
-      - NEXTCLOUD_TRUSTED_DOMAINS=nextcloud.mydomain.com
+      - NEXTCLOUD_TRUSTED_DOMAINS={{ full_domain }}
       - TRUSTED_PROXIES=172.18.0.0/16
     volumes:
       - nextcloud-www:/var/www/html

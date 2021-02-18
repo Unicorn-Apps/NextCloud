@@ -1,0 +1,7 @@
+---
+
+- name: Create a directory
+  file:
+    path: '{{ app_src }}'
+    state: directory
+    mode: '0755'

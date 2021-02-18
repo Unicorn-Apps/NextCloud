@@ -1,0 +1,9 @@
+---
+app_src: '/home/{{ ansible_user }}/.uni/cloud/nextcloud/docker'
+
+sub: 'nextcloud'
+domain: 'timcast.local'
+full_domain: '{{sub}}.{{domain}}'
+othersite: 'unisocial.net'
+
+admin_email: 'testuser41@mail.com'
