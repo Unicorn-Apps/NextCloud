@@ -7,10 +7,7 @@
 # traefik.http.middlewares.nextcloud.headers.customFrameOptionsValue if you don't want to allow iframe your domain
 # 3
 
-networks:
-  nextcloud:
-    external: true
-
+# cat docker-compose.yml
 
 version: '3.3'
 
