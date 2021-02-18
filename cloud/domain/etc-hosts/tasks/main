@@ -1,10 +1,10 @@
 ---
 
 - debug:
-    msg: "default {{ hostvars['node1']['default_ipv4'] }}"
+    msg: "ip {{ hostvars['node1']['default_ipv4'] }}"
 
 - debug:
-    msg: "dom {{ full_domain }}"
+    msg: "domain {{ full_domain }}"
 
 
 - name: Set hosts
