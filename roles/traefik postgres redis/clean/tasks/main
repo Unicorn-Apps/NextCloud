@@ -7,5 +7,8 @@
     remove_images: all
     remove_volumes: yes
 
-- debug:
-    msg: 'compose {{ app_src }}'
+- name: Delete template
+  file:
+    path: '{{ app_src }}/docker-compose.yml'
+    state: absent
+    mode: '0755'
