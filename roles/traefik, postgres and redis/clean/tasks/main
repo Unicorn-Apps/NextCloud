@@ -1,5 +1,11 @@
 ---
-- docker_compose:
-    files:
-    project_src: 
+- name: Clean docker-compose
+  docker_compose:
+    files: docker-compose.yml
+    project_src: '{{ app_src }}'
     state: absent
+    remove_images: all
+    remove_volumes: yes
+
+- debug:
+    msg: 'compose {{ app_src }}'

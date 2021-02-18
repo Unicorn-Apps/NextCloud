@@ -2,7 +2,9 @@
 
 - hosts: node
   roles:
-  # - role: nextcloud/docker-compose
-  #   tags: docker, never
+  - role: traefik, postgres and redis/clean
+    tags: clean, never
+
   - role: this
   - role: traefik, postgres and redis/init
+    tags: up, never
