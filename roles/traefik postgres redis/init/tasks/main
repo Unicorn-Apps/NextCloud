@@ -5,7 +5,7 @@
 
 - name: Template docker-compose.yml
   template:
-    src: docker-compose.yml
+    src: docker-compose.yml.j2
     dest: '{{ app_src }}/docker-compose.yml'
 
 
