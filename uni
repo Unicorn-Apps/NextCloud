@@ -5,10 +5,8 @@
   - role: traefik postgres redis/clean
     tags: clean, never
 
-  - role: this
   - role: traefik postgres redis/init
     tags: up
-  - role: domain/get_ip
 
 - hosts: local
   roles:

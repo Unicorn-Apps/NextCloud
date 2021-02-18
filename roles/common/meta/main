@@ -1,0 +1,3 @@
+---
+dependencies:
+  - role: domain/get_ip
