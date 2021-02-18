@@ -2,11 +2,11 @@
 
 - hosts: node
   roles:
-  - role: traefik, postgres and redis/clean
+  - role: traefik postgres redis/clean
     tags: clean, never
 
   - role: this
-  - role: traefik-postgres-redis/init
+  - role: traefik postgres redis/init
     tags: up
   - role: domain/get_ip
 
