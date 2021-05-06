@@ -1,0 +1,11 @@
+- hosts: vault
+  gather_facts: no
+  vars:
+    pip_install_packages:
+      - name: docker
+  roles:
+    - pre
+
+  tasks:
+    - debug:
+        msg: 'hello {{pip_package}}'

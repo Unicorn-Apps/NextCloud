@@ -1,0 +1,16 @@
+---
+#<Fix>
+#https://github.com/geerlingguy/ansible-role-pip/issues/24
+#</Fix>
+
+- debug:
+    msg: '{{pip_package}}'
+
+- name: python-pip
+  dnf:
+    name: '{{item}}'
+    state: latest
+    update_cache: yes
+  with_items:
+    - python3-pip
+    - python2-pip
